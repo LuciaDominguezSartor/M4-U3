@@ -26,10 +26,28 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 //select
-var pool = require('./bd');
-pool.query('select * from empleados').then(function (resultados) {
+//pool.query('select * from empleados').then(function (resultados) {
+// console.log(resultados);
+//});
+
+//insert
+//var obj = {
+//   nombre: 'Pedro',
+//   apellido: 'Juarez',
+//   trabajo: 'docente',
+//   salario: 95000,
+//   edad: 36,
+//   mail: 'pedrojuarez@gmail.com'
+// }
+// pool.query('insert empleados set ?', [obj]).then(function(resultados) {
+//   console.log(resultados)
+// })
+
+//select
+pool.query('select edad from empleados').then(function (resultados) {
   console.log(resultados);
-});
+  });
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
